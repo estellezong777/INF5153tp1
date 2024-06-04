@@ -38,5 +38,24 @@ public class Controller {
         }
         }
         throw new IllegalArgumentException("Agent name doesn't in the agent list! Please check your information!");
-    }}
+    }
+    
+ // find a specific agent by enter his/her name,if exist return the name,otherwise return null
+    public Agent findAgentByName(String name) {
+        for (Agent agentFind : listAgents) {
+            if (agentFind.getName().equals(name)){
+                return agentFind;
+            }
+        }
+        return null;
+        }
+
+    // Fonction 'isAgentExist' call the fonction 'findAgentByName'. We compare the result that return in fonction
+    // 'findAgentByName' with the value 'null'. When method findAgentByName return null,it means that the agent that
+    // the user want to find doesn't exist, so fonction 'isAgentExist' will return false in this case. 
+
+    public boolean isAgentExist(String nameAgentCheck){
+        return findAgentByName(nameAgentCheck) !=null;
+    }
+}
 // To do........
